@@ -47,7 +47,13 @@ html, body {
     right: 0;
     width: 20px;
     height: 20px;
-    padding: 0 20px 0 0;
+    margin: 0 20px 0 0;
+    transition: all .3s;
+}
+
+.top__refresh:hover {
+    transform: rotate(340deg);
+    transform-origin: center;
 }
 
 .logo {
