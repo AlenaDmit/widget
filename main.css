@@ -15,7 +15,7 @@ html, body {
     height: 100%;
 }
 
-.container {
+.widget {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,7 +31,7 @@ html, body {
     box-sizing: border-box;
 }
 
-.top__block {
+.top {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,7 +41,7 @@ html, body {
     position: relative;
 }
 
-.block__refresh {
+.top__refresh {
     position: absolute;
     top: 0;
     right: 0;
@@ -50,7 +50,7 @@ html, body {
     padding: 0 20px 0 0;
 }
 
-.block__logo {
+.logo {
     height: 70%;
     width: 100%;
     display: flex;
@@ -65,7 +65,7 @@ html, body {
     width: 145px;
 }
 
-.block__weather {
+.top__weather {
     height: 30%;
     width: 100%;
     display: flex;
