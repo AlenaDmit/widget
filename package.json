@@ -1,0 +1,37 @@
+{
+  "name": "widget",
+  "version": "1.0.0",
+  "description": "Weather Widget",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlenaDmit/widget.git"
+  },
+  "keywords": [
+    "widget",
+    "weather"
+  ],
+  "author": "Alena Dmitrievskaia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlenaDmit/widget/issues"
+  },
+  "homepage": "https://github.com/AlenaDmit/widget#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.2"
+  }
+}

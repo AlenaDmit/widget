@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'source_sans_probold';
+    src: url('../assets/fonts/ofont.ru_source_sans_pro_bold-webfont.eot');
+    src: url('../assets/fonts/ofont.ru_source_sans_pro_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/ofont.ru_source_sans_pro_bold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/ofont.ru_source_sans_pro_bold-webfont.woff') format('woff'),
+         url('../assets/fonts/ofont.ru_source_sans_pro_bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'open_sansbold';
+    src: url('../assets/fonts/opensans-bold-webfont.eot');
+    src: url('../assets/fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/opensans-bold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/opensans-bold-webfont.woff') format('woff'),
+         url('../assets/fonts/opensans-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'open_sanslight';
+    src: url('../assets/fonts/opensans-light-webfont.eot');
+    src: url('../assets/fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/opensans-light-webfont.woff2') format('woff2'),
+         url('../assets/fonts/opensans-light-webfont.woff') format('woff'),
+         url('../assets/fonts/opensans-light-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('../assets/fonts/opensans-regular-webfont.eot');
+    src: url('../assets/fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/opensans-regular-webfont.woff2') format('woff2'),
+         url('../assets/fonts/opensans-regular-webfont.woff') format('woff'),
+         url('../assets/fonts/opensans-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'proxima_novabold';
+    src: url('../assets/fonts/proximanova-bold-webfont.eot');
+    src: url('../assets/fonts/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/proximanova-bold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/proximanova-bold-webfont.woff') format('woff'),
+         url('../assets/fonts/proximanova-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'proxima_novalight';
+    src: url('../assets/fonts/proximanova-light-webfont.eot');
+    src: url('../assets/fonts/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/proximanova-light-webfont.woff2') format('woff2'),
+         url('../assets/fonts/proximanova-light-webfont.woff') format('woff'),
+         url('../assets/fonts/proximanova-light-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'proxima_novaregular';
+    src: url('../assets/fonts/proximanova-regular-webfont.eot');
+    src: url('../assets/fonts/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/proximanova-regular-webfont.woff2') format('woff2'),
+         url('../assets/fonts/proximanova-regular-webfont.woff') format('woff'),
+         url('../assets/fonts/proximanova-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source_sans_proregular';
+    src: url('../assets/fonts/source-sans-pro.regular-webfont.eot');
+    src: url('../assets/fonts/source-sans-pro.regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/source-sans-pro.regular-webfont.woff2') format('woff2'),
+         url('../assets/fonts/source-sans-pro.regular-webfont.woff') format('woff'),
+         url('../assets/fonts/source-sans-pro.regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
