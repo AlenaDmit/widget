@@ -1,17 +1,16 @@
-var destDir = "./build/";
-
-var gulp = require("gulp"); // запуск галпа
-var autoprefixer = require("gulp-autoprefixer"); // расставление префиксов
-var concat = require("gulp-concat"); // сливает все файлы в один
-var cssnano = require("gulp-cssnano"); // минификация файлов
-var rename = require("gulp-rename"); // переименовывает файлы
-var clean = require("gulp-clean"); // каждый раз очищает папку build
-var plumber = require("gulp-plumber"); // для отлова ошибок
-var notify = require("gulp-notify"); // ошибки в виде всплывающих окон
-var sourcemaps = require("gulp-sourcemaps"); //История изменения стилей.
-var uglify = require("gulp-uglify"); // Минификация скриптов
-var useref = require("gulp-useref"); // доставка кусочков html в один
-var browserSync = require("browser-sync").create(); // создание сервера
+var destDir = "./build/",
+	gulp = require("gulp"), // запуск галпа
+	autoprefixer = require("gulp-autoprefixer"), // расставление префиксов
+    concat = require("gulp-concat"), // сливает все файлы в один
+    cssnano = require("gulp-cssnano"), // минификация файлов
+    rename = require("gulp-rename"), // переименовывает файлы
+    clean = require("gulp-clean"), // каждый раз очищает папку build
+    plumber = require("gulp-plumber"), // для отлова ошибок
+    notify = require("gulp-notify"), // ошибки в виде всплывающих окон
+    sourcemaps = require("gulp-sourcemaps"), //История изменения стилей.
+    uglify = require("gulp-uglify"), // Минификация скриптов
+    useref = require("gulp-useref"), // доставка кусочков html в один
+    browserSync = require("browser-sync").create(); // создание сервера
 
 
 // таска, запускаемая по дефолту после запуска команды gulp
@@ -42,7 +41,7 @@ gulp.task("watch", function() {
 gulp.task("clean", function() {
 	return gulp.src(destDir)
 		.pipe(clean());
-})
+});
 
 //выполянет сборку и доставку стилей
 gulp.task("styles", function() {
