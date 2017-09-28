@@ -32,7 +32,7 @@ gulp.task("build", ["html", "styles", "scripts", "assets"]);
 gulp.task("watch", function() {
 	gulp.watch("src/styles/**/*.css", ["styles"]);
     gulp.watch("src/js/*.js", ["scripts"]);
-    gulp.watch("*.html", ["html"]);
+    gulp.watch("index.html", ["html"]);
     gulp.watch("src/assets/**/*.*", ["assets"]);
     gulp.watch("src/**/*.*").on("change", browserSync.reload);
 });
@@ -73,7 +73,7 @@ gulp.task("assets", function() {
 
 //доставляет файлы html в конечную папку
 gulp.task("html", function() {
-	gulp.src("index.html")
+	gulp.src("./index.html")
 		.pipe(gulp.dest(destDir))
 		.pipe(sourcemaps.init())
 });
