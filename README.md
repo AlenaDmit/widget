@@ -1,5 +1,5 @@
 # widget
-### demo: http://cm92579.tmweb.ru/7/index.html
+### demo: http://cm92579.tmweb.ru/widget-flex/index.html
 
 ### To start the project:
 
