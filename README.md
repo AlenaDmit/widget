@@ -4,5 +4,6 @@
 ### To start the project:
 
 1) "git clone" 
-2) "gulp"
-3) check your browser ;)
+2) "npm install"
+3) "gulp"
+4) check your browser ;)
