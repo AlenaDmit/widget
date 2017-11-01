@@ -77,7 +77,7 @@ window.onload = (function preparePage() {
                         let date = dt.split(' ')[0];
                         let realDate = new Date(date);
 
-                        return needlyDate.withoutTime().getTime() == realDate.withoutTime().getTime();
+                        return modifiedDate.withoutTime().getTime() == realDate.withoutTime().getTime();
                     });
 
                     console.log(filteredDates);
