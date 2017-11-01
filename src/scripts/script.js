@@ -49,7 +49,7 @@ window.onload = (function preparePage() {
     });
     
     function processData(city, offsetDays, callback) {
-        console.log(city, offsetDays);
+        // console.log(city, offsetDays);
         let url = url_forecast.replace("{HOLDER}", city);
         let xhr = new XMLHttpRequest();
 
@@ -69,8 +69,6 @@ window.onload = (function preparePage() {
                     //Отфильтрованные значения
                     let needlyDate = new Date();
                     let modifiedDate = needlyDate.addDays(Number(offsetDays));
-                    console.log(modifiedDate);
-
                     let filteredDates = jsonRes.list.filter(function (item) {
                         let dt = item.dt_txt;
                         //Возмём дату (год-месяц-день)
@@ -80,14 +78,14 @@ window.onload = (function preparePage() {
                         return modifiedDate.withoutTime().getTime() == realDate.withoutTime().getTime();
                     });
 
-                    console.log(filteredDates);
+                    // console.log(filteredDates);
 
                     let locale = "en-us";
 
                     if (filteredDates.length > 0){
                         //По умолчанию смотрим на первым элемент ИЛИ на день/два вперед
-                        let firstDate = filteredDates[0 + Number(offsetDays)];
-                        console.log(firstDate);
+                        let firstDate = filteredDates[Number(offsetDays)];
+                        // console.log(firstDate);
                         let ourData = {
                             'cityName': city,
                             'weatherStyle': firstDate.weather[0].main + ", " + firstDate.weather[0].description,
@@ -146,11 +144,9 @@ window.onload = (function preparePage() {
     }
 
     let reloadBtn = document.querySelector('.top__refresh');
-    let elemDivCity = document.querySelector('.info__location');
-    let valOfElemDivCity = elemDivCity.innerHTML;
-    console.log(valOfElemDivCity);
-
     reloadBtn.addEventListener('click', function () {
+        let elemDivCity = document.querySelector('.info__location');
+        let valOfElemDivCity = elemDivCity.innerHTML;
         if (!valOfElemDivCity || valOfElemDivCity === 'Saint-Petersburg') {
             processData('Saint-Petersburg', currentOffset, function (data) {
                 render(data);
