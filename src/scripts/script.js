@@ -17,6 +17,16 @@ window.onload = (function preparePage() {
     const url_current = "http://api.openweathermap.org/data/2.5/weather?q={HOLDER}&appid=" + api ;
     const url_forecast = "http://api.openweathermap.org/data/2.5/forecast?q={HOLDER}&appid=" + api;
 
+    let popup = document.querySelector('.widget__popup');
+    let widget = document.querySelector('.widget');
+    let popupText = document.querySelector('.widget__popup__text');
+    let popupCloseBtn = document.querySelector('.widget__popup__img');
+
+    popupCloseBtn.addEventListener('click', function () {
+        popup.style.display = 'none';
+        widget.classList.remove('widget--dark-bg');
+    });
+
     let btnChosenCity = document.querySelector('.top__btn-chosen-city');
     let inputCity = document.querySelector('.top__input');
 
@@ -28,7 +38,9 @@ window.onload = (function preparePage() {
             });
             inputCity.value = '';
         } else {
-            alert("You don't enter name of the city");
+            popup.style.display = 'block';
+            widget.classList.add('widget--dark-bg');
+            popupText.innerHTML = 'You did not enter name of the city';
         }
     });
 
@@ -45,13 +57,12 @@ window.onload = (function preparePage() {
 // Отсылаем объект в формате JSON и с Content-Type application/json
 // Сервер должен уметь такой Content-Type принимать и раскодировать
         xhr.send();
-        // if (xhr.status === 400) {
-        //     alert("не найдено")
-        // }
         xhr.onreadystatechange = function() { // (3)
             if (xhr.readyState != 4) return;
             if (xhr.status != 200) {
-                alert(xhr.status + ': ' + xhr.statusText);
+                popup.style.display = 'block';
+                widget.classList.add('widget--dark-bg');
+                popupText.innerHTML = 'There is not city with entered name';
             } else {
                 let jsonRes = JSON.parse(xhr.responseText);
                 if (jsonRes.cod == 200) {
@@ -69,11 +80,14 @@ window.onload = (function preparePage() {
                         return needlyDate.withoutTime().getTime() == realDate.withoutTime().getTime();
                     });
 
+                    console.log(filteredDates);
+
                     let locale = "en-us";
 
                     if (filteredDates.length > 0){
-                        //По умолчанию смотрим на первым элемент
+                        //По умолчанию смотрим на первым элемент ИЛИ на день/два вперед
                         let firstDate = filteredDates[0 + Number(offsetDays)];
+                        console.log(firstDate);
                         let ourData = {
                             'cityName': city,
                             'weatherStyle': firstDate.weather[0].main + ", " + firstDate.weather[0].description,
@@ -83,7 +97,6 @@ window.onload = (function preparePage() {
                             'clouds': firstDate.clouds.all,
                             'month': modifiedDate.toLocaleString(locale, { month: "short" }),
                             'date': modifiedDate.getDate()
-                            // 'icon' : firstDate.weather[0].icon
                         };
                         callback(ourData);
                     }
@@ -131,5 +144,22 @@ window.onload = (function preparePage() {
             });
         }
     }
+
+    let reloadBtn = document.querySelector('.top__refresh');
+    let elemDivCity = document.querySelector('.info__location');
+    let valOfElemDivCity = elemDivCity.innerHTML;
+    console.log(valOfElemDivCity);
+
+    reloadBtn.addEventListener('click', function () {
+        if (!valOfElemDivCity || valOfElemDivCity === 'Saint-Petersburg') {
+            processData('Saint-Petersburg', currentOffset, function (data) {
+                render(data);
+            });
+        } else {
+            processData(valOfElemDivCity, currentOffset, function (data) {
+                render(data);
+            });
+        }
+    });
 
 })();
