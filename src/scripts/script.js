@@ -73,7 +73,7 @@ window.onload = (function preparePage() {
 
                     if (filteredDates.length > 0){
                         //По умолчанию смотрим на первым элемент
-                        let firstDate = filteredDates[0];
+                        let firstDate = filteredDates[0 + Number(offsetDays)];
                         let ourData = {
                             'cityName': city,
                             'weatherStyle': firstDate.weather[0].main + ", " + firstDate.weather[0].description,
