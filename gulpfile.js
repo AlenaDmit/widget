@@ -31,7 +31,7 @@ gulp.task("build", ["html", "styles", "scripts", "assets"]);
 // следит за изменениями во всех файлах проекта и, при их изменении, автоматически применяет эти изменения к конечным файлам
 gulp.task("watch", function() {
 	gulp.watch("src/styles/**/*.css", ["styles"]);
-    gulp.watch("src/js/*.js", ["scripts"]);
+    gulp.watch("src/scripts/*.js", ["scripts"]);
     gulp.watch("index.html", ["html"]);
     gulp.watch("src/assets/**/*.*", ["assets"]);
     gulp.watch("src/**/*.*").on("change", browserSync.reload);
@@ -73,16 +73,16 @@ gulp.task("assets", function() {
 
 //доставляет файлы html в конечную папку
 gulp.task("html", function() {
-	gulp.src("./index.html")
+	return gulp.src("./index.html")
 		.pipe(gulp.dest(destDir))
-		.pipe(sourcemaps.init())
+		.pipe(sourcemaps.write())
 });
 
 gulp.task("scripts", function () {
-    return gulp.src("src/js/*.js")
+    return gulp.src("src/scripts/*.js")
         .pipe(sourcemaps.init())
         .pipe(concat("scripts.js"))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(destDir + "/js"));
 });

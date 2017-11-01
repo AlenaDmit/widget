@@ -12,17 +12,24 @@
         <article class="widget">
             <div class="container__top">
                 <div class="top">
-                    <a href="#"><img class="top__refresh" src="./assets/ico/spinner11.svg" alt="Refresh"></a>
+                    <div class="top__bar">
+                        <input id="search-city" type="text" class="top__input" required placeholder="Enter name of the city...">
+                        <button class="top__btn-chosen-city">Search</button>
+                        <a href="#" class="top__link-refresh"><img class="top__refresh" src="./assets/ico/spinner11.svg" alt="Refresh"></a>
+                    </div>
                     <div class="logo">
                         <img class="logo__svg" src="./assets/ico/cloudy.svg" alt="Cloudy">
                     </div>
                     <div class="top__weather">
-                        <div class="weather__degrees">79°</div>
+                        <div class="weather__degrees"></div>
                         <div class="weather__info">
-                            <div class="info__desc">Cloudy Skies</div>
-                            <div class="info__location">Sicklerville, New Jersey</div>
+                            <div class="info__desc"></div>
+                            <div class="info__location"></div>
                         </div>
-                        <div class="weather__date">MAY<br> 21</div>
+                        <div class="weather__data">
+                            <div class="weather__data__month"></div>
+                            <div class="weather__data__day"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -31,23 +38,24 @@
                     <li class="indicators__logo">
                         <img id="logo-wind" src="./assets/ico/wind.svg" alt="Wind">
                     </li>
-                    <li class="indicators__value">2 MPH</li>
+                    <li class="indicators__value indicators__wind"></li>
                     <li class="indicators__logo">
                         <img id="logo-humidity" src="./assets/ico/droplet.svg" alt="Droplet">
                     </li>
-                    <li class="indicators__value">33%</li>
+                    <li class="indicators__value indicators__humidity"></li>
                     <li class="indicators__logo">
                         <img id="logo-sun" src="./assets/ico/sun.svg" alt="Sun">
                     </li>
-                    <li class="indicators__value">83%</li>
+                    <li class="indicators__value indicators__clouds"></li>
                 </ul>
                 <ul class="bottom__points">
-                    <li class="points__item" id="active-point"></li>
-                    <li class="points__item"></li>
-                    <li class="points__item"></li>
+                    <li class="points__item active-point" data-offset-days="0"></li>
+                    <li class="points__item" data-offset-days="1"></li>
+                    <li class="points__item" data-offset-days="2"></li>
                 </ul>
             </div>
         </article>
     </div>
 </body>
+<script src="./js/scripts.js"></script>
 </html>

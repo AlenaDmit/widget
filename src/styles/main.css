@@ -50,10 +50,44 @@ html, body {
     position: relative;
 }
 
+.top__bar {
+    width: 100%;
+    margin: 0 0 30px 0;
+}
+
+.top__input {
+    width: 200px;
+    float: left;
+    color: #788388;
+    outline: none;
+    padding: 3px;
+    background: transparent;
+    border: transparent;
+    border-bottom: 2px solid #bac2c6;
+    margin: 0 20px 0 0;
+}
+
+.top__btn-chosen-city {
+    outline: none;
+    border: 2px solid #bac2c6;
+    background: transparent;
+    color: #788388;
+    padding: 2px 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all .3s;
+}
+
+.top__btn-chosen-city:hover {
+    background: #bac2c6;
+    color: white;
+}
+
+.top__link-refresh {
+    float: right;
+}
+
 .top__refresh {
-    position: absolute;
-    top: 0;
-    right: 0;
     width: 20px;
     height: 20px;
     margin: 0 20px 0 0;
@@ -116,13 +150,16 @@ html, body {
     color: #a2a9ad;
 }
 
-.weather__date {
+.weather__data {
     font: 1.4rem open_sansbold;
     color: #fff;
     width: 15%;
     text-align: center;
     background: #54bae6;
     padding: 15px;
+}
+.weather__data__month {
+    text-transform: uppercase;
 }
 
 .container__bottom {
@@ -200,7 +237,7 @@ html, body {
     margin: 0;
 }
 
-#active-point, .points__item:hover {
+.active-point, .points__item:hover {
     background: #fff;
     border: 2px solid #fff;
 }
