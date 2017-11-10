@@ -13,22 +13,22 @@ window.onload = (function preparePage() {
         return d;
     };
 
-    const api = "c6898c020dd0d3c6977019766daf9eca";
-    const url_current = "http://api.openweathermap.org/data/2.5/weather?q={HOLDER}&appid=" + api ;
-    const url_forecast = "http://api.openweathermap.org/data/2.5/forecast?q={HOLDER}&appid=" + api;
+    const token = "c6898c020dd0d3c6977019766daf9eca";
+    const url_current = "http://api.openweathermap.org/data/2.5/weather?q={HOLDER}&appid=" + token ;
+    const url_forecast = "http://api.openweathermap.org/data/2.5/forecast?q={HOLDER}&appid=" + token;
 
-    let popup = document.querySelector('.widget__popup');
-    let widget = document.querySelector('.widget');
-    let popupText = document.querySelector('.widget__popup__text');
-    let popupCloseBtn = document.querySelector('.widget__popup__img');
+    const popup = document.querySelector('.widget__popup');
+    const widget = document.querySelector('.widget');
+    const popupText = document.querySelector('.widget__popup__text');
+    const popupCloseBtn = document.querySelector('.widget__popup__img');
 
     popupCloseBtn.addEventListener('click', function () {
         popup.style.display = 'none';
         widget.classList.remove('widget--dark-bg');
     });
 
-    let btnChosenCity = document.querySelector('.top__btn-chosen-city');
-    let inputCity = document.querySelector('.top__input');
+    const btnChosenCity = document.querySelector('.top__btn-chosen-city');
+    const inputCity = document.querySelector('.top__input');
 
     btnChosenCity.addEventListener('click', function () {
         let enteredCity = inputCity.value;
@@ -50,8 +50,8 @@ window.onload = (function preparePage() {
     
     function processData(city, offsetDays, callback) {
         // console.log(city, offsetDays);
-        let url = url_forecast.replace("{HOLDER}", city);
-        let xhr = new XMLHttpRequest();
+        const url = url_forecast.replace("{HOLDER}", city);
+        const xhr = new XMLHttpRequest();
 
         xhr.open("GET", url, true);
 // Отсылаем объект в формате JSON и с Content-Type application/json
@@ -60,19 +60,25 @@ window.onload = (function preparePage() {
         xhr.onreadystatechange = function() { // (3)
             if (xhr.readyState != 4) return;
             if (xhr.status != 200) {
-                popup.style.display = 'block';
-                widget.classList.add('widget--dark-bg');
-                popupText.innerHTML = 'There is not city with entered name';
+                if (xhr.status === 404) {
+                    popup.style.display = 'block';
+                    widget.classList.add('widget--dark-bg');
+                    popupText.innerHTML = 'Network error';
+                } else {
+                    popup.style.display = 'block';
+                    widget.classList.add('widget--dark-bg');
+                    popupText.innerHTML = 'There is not city with entered name';
+                }
             } else {
-                let jsonRes = JSON.parse(xhr.responseText);
+                const jsonRes = JSON.parse(xhr.responseText);
                 if (jsonRes.cod == 200) {
                     //Отфильтрованные значения
                     let needlyDate = new Date();
                     let modifiedDate = needlyDate.addDays(Number(offsetDays));
                     let filteredDates = jsonRes.list.filter(function (item) {
-                        let dt = item.dt_txt;
+                        const dt = item.dt_txt;
                         //Возмём дату (год-месяц-день)
-                        let date = dt.split(' ')[0];
+                        const date = dt.split(' ')[0];
                         let realDate = new Date(date);
 
                         return modifiedDate.withoutTime().getTime() == realDate.withoutTime().getTime();
@@ -80,13 +86,13 @@ window.onload = (function preparePage() {
 
                     // console.log(filteredDates);
 
-                    let locale = "en-us";
+                    const locale = "en-us";
 
                     if (filteredDates.length > 0){
                         //По умолчанию смотрим на первым элемент ИЛИ на день/два вперед
-                        let firstDate = filteredDates[Number(offsetDays)];
+                        const firstDate = filteredDates[Number(offsetDays)];
                         // console.log(firstDate);
-                        let ourData = {
+                        const ourData = {
                             'cityName': city,
                             'weatherStyle': firstDate.weather[0].main + ", " + firstDate.weather[0].description,
                             'degrees': Math.floor(firstDate.main.temp) - 273,
@@ -104,14 +110,14 @@ window.onload = (function preparePage() {
     }
 
     function render(data) {
-        let cityName = document.querySelector('.info__location');
-        let weatherStyle = document.querySelector('.info__desc');
-        let degrees = document.querySelector('.weather__degrees');
-        let wind = document.querySelector('.indicators__wind');
-        let humidity = document.querySelector('.indicators__humidity');
-        let clouds = document.querySelector('.indicators__clouds');
-        let month = document.querySelector('.weather__data__month');
-        let date = document.querySelector('.weather__data__day');
+        const cityName = document.querySelector('.info__location');
+        const weatherStyle = document.querySelector('.info__desc');
+        const degrees = document.querySelector('.weather__degrees');
+        const wind = document.querySelector('.indicators__wind');
+        const humidity = document.querySelector('.indicators__humidity');
+        const clouds = document.querySelector('.indicators__clouds');
+        const month = document.querySelector('.weather__data__month');
+        const date = document.querySelector('.weather__data__day');
 
         cityName.innerHTML = data.cityName;
         weatherStyle.innerHTML = data.weatherStyle;
@@ -122,8 +128,8 @@ window.onload = (function preparePage() {
         month.innerHTML = data.month;
         date.innerHTML = data.date;
 
-        let point = document.querySelector('.points__item');
-        let points = document.querySelectorAll('.points__item');
+        const point = document.querySelector('.points__item');
+        const points = document.querySelectorAll('.points__item');
 
         points.forEach(function (item) {
             item.onclick = function(e) {
@@ -143,10 +149,10 @@ window.onload = (function preparePage() {
         }
     }
 
-    let reloadBtn = document.querySelector('.top__refresh');
+    const reloadBtn = document.querySelector('.top__refresh');
     reloadBtn.addEventListener('click', function () {
         let elemDivCity = document.querySelector('.info__location');
-        let valOfElemDivCity = elemDivCity.innerHTML;
+        const valOfElemDivCity = elemDivCity.innerHTML;
         if (!valOfElemDivCity || valOfElemDivCity === 'Saint-Petersburg') {
             processData('Saint-Petersburg', currentOffset, function (data) {
                 render(data);
