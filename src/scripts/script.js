@@ -44,7 +44,7 @@ window.onload = (function preparePage() {
         }
     });
 
-    processData("Saint-Petersburg", currentOffset, function (data) {
+    processData("Moscow", currentOffset, function (data) {
         render(data);
     });
     
